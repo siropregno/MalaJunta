@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
 import Navbar from './Components/Navbar/navbar'
 import Profile from './pages/profile/Profile'
@@ -10,17 +10,17 @@ import Media from './pages/Media/Media'
 function App() {
   return (
     <AuthProvider>
-      <Router>
+      <BrowserRouter basename="/MalaJunta">
         <div className="app">
           <Navbar />
           <main>
             <div className="content-zone">
-              <BrowserRouter basename="/MalaJunta">
-                  <Route path="/" element={<Home />} />
-                  <Route path="/media" element={<Media />} />
-                  <Route path="/profile" element={<Profile />} />
-                  <Route path="/login" element={<Login />} />
-              </BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/media" element={<Media />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/login" element={<Login />} />
+              </Routes>
             </div>
           </main>
           <footer>
@@ -29,7 +29,7 @@ function App() {
             </div>
           </footer>
         </div>
-      </Router>
+      </BrowserRouter>
     </AuthProvider>
   )
 }
