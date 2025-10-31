@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Metamorphous&display=swap');
+
+:root {
+    --blk: #030303;
+    --accent: #21a6ff;
+    --accent-b: color-mix(in srgb, var(--accent) 50%, black 50%);
+    --wht: #fff;
+    --dark-grey: #131313;
+    --light-grey: #929292;
+
+    --danger: #d12d2d;
+
+    --font-accent: 'Metamorphous', system-ui;
+    --font-body: 'Faustina', system-ui;
+}
+
+body {
+    background-color: var(--blk);
+    color: var(--wht);
+    margin: 0;
+    overflow-x: hidden;
+    font-size: 14px;
+}
+
+.content-zone {
+    height: auto;
+    margin-top: 10vh;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 20% 50%, color-mix(in srgb, var(--accent) 15%, transparent) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--accent) 15%, transparent) 0%, transparent 50%);
+}
+
+
+.content-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.content-header {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+}
+
+.content-header a{
+    color: var(--accent);
+}
+
+.content-header-title {
+    font-family: var(--font-accent);
+    font-size: 38px;
+    font-weight: 500;
+    color: var(--wht);
+    margin: 0;
+}
+
+.content-header-subtitle {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--light-grey);
+    margin: 0;
+}
+
+.content-body {
+    min-height: 70vh;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.bar-options{
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+}
+
+.bar-options ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 10px;
+    margin: 0;
+    width: 100%;
+}
+
+.bar-options ul li {
+  font-family: var(--font-body);
+  color: var(--wht);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.bar-options ul li:hover {
+  color: var(--accent);
+}
+
+.bar-options ul li::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.bar-options ul li:hover::after {
+  width: 100%;
+}
+
+.bar-options ul li.active a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--dark-grey);
+    border-radius: 6px;
+    color: var(--wht);
+    font-size: 14px;
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 2px rgba(212, 29, 29, 0.2);
+}
+
+.input-field:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.input-field::placeholder {
+    color: rgba(254, 254, 254, 0.5);
+}
+
+/* Light mode styles para input-field */
+@media (prefers-color-scheme: light) {
+    .input-field {
+        background: rgba(0, 0, 0, 0.02);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        color: #213547;
+    }
+
+    .input-field:focus {
+        border-color: var(--accent);
+        background: rgba(0, 0, 0, 0.05);
+        box-shadow: 0 0 0 2px rgba(212, 29, 29, 0.2);
+    }
+
+    .input-field:disabled {
+        background: rgba(0, 0, 0, 0.01);
+    }
+
+    .input-field::placeholder {
+        color: rgba(33, 53, 71, 0.5);
+    }
+}
+
+.button-a {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.button-a:hover {
+    transform: translateY(-1px);
+}
+
+.button-a-round {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding:1rem;
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.button-a-round:hover {
+    transform: translateY(-1px);
+}
+
+.button-b {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark-grey);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.button-b:hover {
+    transform: translateY(-1px);
+}
+
+.button-danger {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--danger);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+
+.button-discord{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #5865F2;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.footer {
+    font-family: var(--font-accent);
+    font-size: 12px;
+    height: 10vh;
+    background-color: var(--blk);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--wht);
+}
