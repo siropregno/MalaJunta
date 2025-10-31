@@ -16,12 +16,10 @@ function App() {
           <main>
             <div className="content-zone">
               <BrowserRouter basename="/MalaJunta">
-                <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/media" element={<Media />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/login" element={<Login />} />
-                </Routes>
               </BrowserRouter>
             </div>
           </main>
