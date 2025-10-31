@@ -10,7 +10,7 @@ import Media from './pages/Media/Media'
 function App() {
   return (
     <AuthProvider>
-      <BrowserRouter basename="/MalaJunta">
+      <BrowserRouter>
         <div className="app">
           <Navbar />
           <main>
